@@ -1,25 +1,8 @@
+spring:
+  application:
+    name: first-service
 server:
-  port:8080
-
-#spring:
-#  cloud:
-#    gateway:
-#      mvc:
-#        routes:
-#          - id: employeeModule
-#            uri: http://localhost:8010/
-#            predicates:
-#              - Path=/employee/**
-#          - id: consumerModule
-#            uri: http://localhost:8020/
-#            predicates:
-#              - Path=/consumer/**
-
-service:
-  first:
-    uri: http://localhost:8010/
-  second:
-    uri: http://localhost:8020
+  port: 8010
 
 resilience4j.circuitbreaker:
   instances:
@@ -51,9 +34,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: always
-    env:
-      show-values: always
+        include: resilience4j
